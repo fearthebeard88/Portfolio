@@ -3,7 +3,7 @@ function addCat(){
     global $connect;
     // if POST key 'submit' is set, assign the key 'cat_title' to a variable
  if (isSet($_POST['submit'])) {
-    $category = $_POST['cat_title'];
+    $category = mysqli_real_escape_string($connect, $_POST['cat_title']);
     // if $category is empty, enjoy my sense of humor ;)
     if ($category == "" || empty($category)) {
         echo "Here's how this goes...You fill out the field, THEN click the button...dipshit...";
@@ -41,7 +41,7 @@ function delete_cat() {
     global $connect;
     // if there is a GET 'delete' set, assign it to a variable
     if (isSet($_GET['delete'])) {
-        $the_cat_id = $_GET['delete'];
+        $the_cat_id = mysqli_real_escape_string($connect, $_GET['delete']);
         // delete from the table categories where cat_id = $the_cat_id
     $query = "DELETE FROM categories WHERE cat_id = {$the_cat_id} ";
     $delete = mysqli_query($connect, $query);
@@ -62,7 +62,7 @@ function delete_post() {
     global $connect;
     // if there is a GET key 'delete' set, assign the value to a variable
     if (isSet($_GET['delete'])) {
-        $delete = $_GET['delete'];
+        $delete = mysqli_real_escape_string($connect, $_GET['delete']);
         // delete from posts where post_id = $delete
         $query = "DELETE FROM posts WHERE post_id = {$delete} ";
         $delete_query = mysqli_query($connect, $query);

@@ -16,7 +16,7 @@
 
   // if POST 'submit' is set, assign POST 'search' to a variable
 if (isSet($_POST['submit'])) {
-   $search = strtolower($_POST['search']); 
+   $search = mysqli_real_escape_string($connect, strtolower($_POST['search'])); 
 
 // select all from table posts where post_tags contain the pattern held by $search.  the % looks for patterns anywhere in the value.
    $query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%' ";

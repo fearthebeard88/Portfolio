@@ -2,14 +2,14 @@
 // checking for HTTP data POST with key 'create'
 // if 'create' is set, grab the other POST data and stick them inside variables
 if(isSet($_POST['create'])) {
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
+    $first_name = mysqli_real_escape_string($connect, $_POST['first_name']);
+    $last_name = mysqli_real_escape_string($connect, $_POST['last_name']);
+    $username = mysqli_real_escape_string($connect, $_POST['username']);
+    $email = mysqli_real_escape_string($connect, $_POST['email']);
     // $post_image = $_FILES['image']['name'];
     // $post_image_temp = $_FILES['image']['tmp_name'];
-    $role = $_POST['role'];
-    $password = $_POST['password'];
+    $role = mysqli_real_escape_string($connect, $_POST['role']);
+    $password = mysqli_real_escape_string($connect, $_POST['password']);
     $date = date('d-m-y');
 
     // function to move a file from a temporary holding spot, into a more permanent spot

@@ -41,7 +41,7 @@
                            <?php
 
                             if (isSet($_GET['edit'])) {
-                                $cat_id = $_GET['edit'];
+                                $cat_id = mysqli_real_escape_string($connect, $_GET['edit']);
                                 include "update_categories.php";
                             }
 

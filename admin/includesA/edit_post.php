@@ -1,7 +1,7 @@
 <?php
 // if GET request key p_id is set, assign it to a variable
 if (isSet($_GET['p_id'])) {
-    $post_id = $_GET['p_id'];
+    $post_id = mysqli_real_escape_string($connect, $_GET['p_id']);
 }
 // select all from table posts where post_id = $post_id
 $show_all = "SELECT * FROM posts WHERE post_id = {$post_id} ";
@@ -23,14 +23,14 @@ while ($row = mysqli_fetch_assoc($query)) {
 if (isSet($_POST['create'])) {
 $query = "SELECT * FROM posts WHERE post_id = {$post_id} ";
 // assigning values posted from form into variables
-$post_title = $_POST['title'];
-$post_author = $_POST['author'];
-$post_category_id = $_POST['post_category'];
-$post_status = $_POST['status'];
-$post_image = $_FILES['image']['name'];
-$post_image_temp = $_FILES['image']['tmp_name'];
-$post_tags = $_POST['tags'];
-$post_content = $_POST['content'];
+$post_title = mysqli_real_escape_string($connect, $_POST['title']);
+$post_author = mysqli_real_escape_string($connect, $_POST['author']);
+$post_category_id = mysqli_real_escape_string($connect, $_POST['post_category']);
+$post_status = mysqli_real_escape_string($connect, $_POST['status']);
+$post_image = mysqli_real_escape_string($connect, $_FILES['image']['name']);
+$post_image_temp = mysqli_real_escape_string($connect, $_FILES['image']['tmp_name']);
+$post_tags = mysqli_real_escape_string($connect, $_POST['tags']);
+$post_content = mysqli_real_escape_string($connect, $_POST['content']);
 $post_date = date('d-m-y');
 $post_comment_count = 4;
 // moving file from temp position into permanent position

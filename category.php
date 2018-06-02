@@ -15,7 +15,7 @@
             <?php
             // if GET 'category' is set, assign the value to a variable
             if(isSet($_GET['category'])) {
-                $post_cat = $_GET['category'];
+                $post_cat = mysqli_real_escape_string($connect, $_GET['category']);
             }
             // select all from table posts where post_cat_id = $post_cat
             $query = "SELECT * FROM posts WHERE post_cat_id = {$post_cat} ";

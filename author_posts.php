@@ -21,7 +21,7 @@
 
             <?php
             if (isSet($_GET['author'])) {
-                $post_author = $_GET['author'];
+                $post_author = mysqli_real_escape_string($connect, $_GET['author']);
             }
 
             // selecting all from posts table

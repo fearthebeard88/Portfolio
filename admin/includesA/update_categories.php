@@ -5,7 +5,7 @@
     <?php
     // if GET key 'edit' is set, assign the value into a variable
     if (isSet($_GET['edit'])) {
-        $cat_id = $_GET['edit'];
+        $cat_id = mysqli_real_escape_string($connect, $_GET['edit']);
         // select all from table categories where cat_id = $cat_id
     $query = "SELECT * FROM categories WHERE cat_id = $cat_id ";
     $find_cat = mysqli_query($connect, $query);
@@ -27,7 +27,7 @@
     <?php 
     // if POST 'update' is set, assign the other POST values into variables
     if (isSet($_POST['update'])) {
-        $the_cat_title = $_POST['cat_title'];
+        $the_cat_title = mysqli_real_escape_string($connect, $_POST['cat_title']);
     // update database with values from form
     $query = "UPDATE categories SET cat_title = '{$the_cat_title}' WHERE cat_id = {$cat_id} ";
     $update_query = mysqli_query($connect, $query);

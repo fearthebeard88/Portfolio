@@ -23,7 +23,7 @@
 <?php
 // if the key source is set, assign it to a variable
 if (isSet($_GET['source'])) {
-    $source = $_GET['source'];
+    $source = mysqli_real_escape_string($connect, $_GET['source']);
 } else {
     $source = '';
 }

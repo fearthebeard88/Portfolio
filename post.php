@@ -16,7 +16,7 @@
             <?php
             // if there is a GET request in URL under key p_id, assign it to a variable
             if (isSet($_GET['p_id'])) {
-                $post_id = $_GET['p_id'];
+                $post_id = mysqli_real_escape_string($connect, $_GET['p_id']);
             }
         // select all from table posts where post_id(column in database) = $post_id(GET request info)
         $query = "SELECT * FROM posts WHERE post_id = {$post_id} ";
