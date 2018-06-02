@@ -17,17 +17,31 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
 
-                    <?php
-                    // select all from table categories
-                    $query = "SELECT * FROM categories ";
-                    $selectCat = mysqli_query($connect, $query);
-                    // assigning values from database into array
-                    while ($row = mysqli_fetch_assoc($selectCat)) {
-                       $cat_title = $row['cat_title'];
-                        echo "<li><a href = '#'>{$cat_title}</a></li>";
-                    }
+<?php
 
-                    ?>
+
+// select all from table categories
+$query = "SELECT * FROM categories ";
+$selectCat = mysqli_query($connect, $query);
+// assigning values from database into array
+while ($row = mysqli_fetch_assoc($selectCat)) {
+    $cat_title = $row['cat_title'];
+    $cat_id = $row['cat_id'];
+
+    $query2 = "SELECT * FROM posts WHERE post_cat_id = {$cat_id} ";
+    $find_posts = mysqli_query($connect, $query2);
+
+    while ($row = mysqli_fetch_assoc($find_posts)) {
+        $post_cat_id = $row['post_cat_id'];
+}
+    if (empty($post_cat_id)) {
+        echo "<li><a href = '#'></a></li>";
+    } else {
+    echo "<li><a href = 'category.php?category=$post_cat_id'>{$cat_title}</a></li>";
+    }
+}
+
+?>
 
                     <li>
                         <a href="./admin/includesA/index.php">Admin</a>

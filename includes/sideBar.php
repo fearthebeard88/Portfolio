@@ -24,7 +24,7 @@ $selectQuery = mysqli_query($connect, $query);
 ?>
                 <!-- Blog Categories Well -->
                 <div class="well">
-                    <h4>Blog Categories</h4>
+                    <h4>Post Categories</h4>
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="list-unstyled">
