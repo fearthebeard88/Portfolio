@@ -15,8 +15,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Welcome Guru-in-training
-                            <small>Author</small>
+                            Welcome Jedi-in-training
+                            <small>Young Padawan</small>
                         </h1>
                         <!-- <ol class="breadcrumb">
                             <li>

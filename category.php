@@ -32,8 +32,8 @@
                 
                 ?>
                 <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
+                    Project Post
+                    <small></small>
                 </h1>
 
                 <!-- First Blog Post -->
