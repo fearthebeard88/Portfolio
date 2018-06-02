@@ -1,5 +1,6 @@
 <?php include "includes/db.php"; ?>
 <?php include "includes/header.php"; ?>
+<?php include "admin/includesA/functions.php"; ?>
 <body>
 
     <!-- Navigation -->
@@ -19,9 +20,15 @@
 
 
             <?php
+            if (isSet($_GET['author'])) {
+                $post_author = $_GET['author'];
+            }
+
             // selecting all from posts table
             $query = "SELECT * FROM posts WHERE post_status = 'Published' ";
+            $query .= "AND post_author = '{$post_author}' ";
             $select_all_posts_query = mysqli_query($connect, $query);
+            why($select_all_posts_query);
             // sorting the array returned from the database
 
             if (mysqli_num_rows($select_all_posts_query) == 0) {
@@ -44,7 +51,7 @@
                     <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title; ?></a>
                 </h2>
                 <p class="lead">
-                    by <a href="author_posts.php?author=<?php echo $post_author; ?>"><?php echo $post_author; ?></a>
+                    by <a href="index.php"><?php echo $post_author; ?></a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date; ?></p>
                 <hr>
