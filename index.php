@@ -33,8 +33,8 @@
                 
                 ?>
                 <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
+                    Tim's Portfolio Page
+                    <small>Grab a beer while your here...</small>
                 </h1>
 
                 <!-- First Blog Post -->
@@ -69,7 +69,7 @@
             </div>
 
             <!-- Blog Sidebar Widgets Column -->
-            <?php include "includes/sideBar.php"; ?>
+            <!-- <?php // include "includes/sideBar.php"; ?> -->
         <!-- /.row -->
 
         <hr>
