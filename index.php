@@ -12,6 +12,12 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
+            <h1 class="page-header">
+                    Tim's Portfolio Page
+                    <small>Grab a beer while you're here...</small>
+                </h1>
+
+
             <?php
             // selecting all from posts table
             $query = "SELECT * FROM posts WHERE post_status = 'Published' ";
@@ -32,11 +38,7 @@
                 $post_status = $row['post_status'];
                 
                 ?>
-                <h1 class="page-header">
-                    Tim's Portfolio Page
-                    <small>Grab a beer while your here...</small>
-                </h1>
-
+                
                 <!-- First Blog Post -->
                 <h2><!--using the database entries to use an HTTP query -->
                     <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title; ?></a>
