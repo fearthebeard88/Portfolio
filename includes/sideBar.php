@@ -58,7 +58,7 @@ $selectQuery = mysqli_query($connect, $query);
                 </div>
 
                 <!-- Side Widget Well -->
-                <?php include "widget.php"; ?>
+                <?php // include "widget.php"; ?>
             </div>
 
         </div>
